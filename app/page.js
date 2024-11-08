@@ -8,13 +8,13 @@ export default function Home() {
     <main className="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center">
       <section className="text-center px-4">
         <Image 
-          src="/public/photos/evanphoto.jpg" // Replace with your profile picture in public folder
+          src="/photos/evanphoto.jpg" // Replace with your profile picture in public folder
           width={150} 
           height={150} 
           alt="Profile Picture"
           className="rounded-full mx-auto mb-6"
         />
-        <h1 className="text-5xl font-extrabold mb-4 animate-fadeIn">Hello, I'm <span className="text-blue-400">[Your Name]</span></h1>
+        <h1 className="text-5xl font-extrabold mb-4 animate-fadeIn">Hello, I'm <span className="text-blue-400">Md. Abul Hasan</span></h1>
         <p className="text-lg font-light mb-8 max-w-md mx-auto leading-relaxed animate-fadeIn">
           A passionate developer focused on building impactful web applications.
         </p>
@@ -32,7 +32,7 @@ export default function Home() {
         </div>
 
         <a
-          href="/projects"
+          href="/project"
           className="inline-block px-6 py-3 bg-blue-500 rounded-lg text-lg font-semibold hover:bg-blue-400 transition-colors animate-fadeIn"
         >
           View My Work
