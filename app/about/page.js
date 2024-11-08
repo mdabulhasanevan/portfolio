@@ -1,7 +1,23 @@
-// pages/about.js
+
+// app/about/page.js
+import getData from "../data/getData";
+
 import Image from "next/image";
 
-export default function About() {
+export default async function About() {
+ 
+const user=await getData.GetUserData();
+console.log("my data: " + user);
+
+  const userData = {
+    name: user.name,
+    bio: user.bio,
+    skills: user.skills,
+    profileImage: user.profileImage,
+  };
+
+  console.log(userData)
+
   return (
     <main className="bg-gray-900 text-white min-h-screen py-10">
       <section className="container mx-auto px-4 lg:px-8">
@@ -12,7 +28,7 @@ export default function About() {
           {/* Profile Image */}
           <div className="w-full lg:w-1/3 flex justify-center lg:justify-start">
             <Image 
-              src="/photos/evanphoto.jpg" // Make sure the path is correct
+              src={userData.profileImage}
               width={300}
               height={300}
               alt="Profile Picture"
@@ -22,18 +38,17 @@ export default function About() {
           
           {/* Bio Section */}
           <div className="w-full lg:w-2/3 text-center lg:text-left">
-            <h3 className="text-3xl font-bold mb-4">Hello, I'm [Your Name]</h3>
+            <h3 className="text-3xl font-bold mb-4">Hello, I'm {userData.name}</h3>
             <p className="text-lg text-gray-300 leading-relaxed mb-6">
-              I am a passionate software developer with a focus on creating impactful web applications. With a strong background in frontend and backend development, I enjoy turning complex problems into simple, elegant solutions. My goal is to continue learning and expanding my skills to create software that enhances user experiences and brings ideas to life.
+              {userData.bio}
             </p>
             
             <h4 className="text-2xl font-semibold text-blue-400 mb-4">Skills & Expertise</h4>
-            <ul className="text-gray-300 space-y-2">
-              <li>💻 Proficient in JavaScript, TypeScript, React, and Next.js</li>
-              <li>🌐 Skilled in CSS, Tailwind CSS, and responsive design</li>
-              <li>🔧 Experience with Node.js, Express, and MongoDB</li>
-              <li>🚀 Passionate about user-centered design and creating seamless experiences</li>
-            </ul>
+            <ol>
+        {userData.skills.map((skill) => (
+          <li className="text-amber-400" key={skill}>{skill}</li>
+        ))}
+      </ol>
           </div>
         </div>
       </section>
