@@ -18,6 +18,15 @@ class getData {
         return await user;
     }
     // Fetch data from MongoDB
+    async GetProjectData() {
+        const client2 = await clientPromise;
+        const db = client2.db('portfolio');
+        const collection = db.collection('projects');
+
+        const Projects = await collection.find().toArray();
+
+        return await Projects;
+    }
 
 }
 
