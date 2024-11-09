@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function UserProfile({ user }) {
   return (
-    <section className="text-center px-4">
+    <section className="text-center px-4 -mt-8">
       <Image 
         src={user.profileImage} // Profile picture from public folder
         width={150} 
@@ -32,22 +32,21 @@ export default function UserProfile({ user }) {
           <FaTwitter size={30} />
         </a>
       </div>
-
+      <a
+        href="/about"
+        className="inline-block px-6 py-3 mx-2 bg-green-500 rounded-lg text-lg font-semibold hover:bg-blue-400 transition-colors animate-fadeIn"
+      >
+        My Details
+      </a>
       <a
         href="/project"
         className="inline-block px-6 py-3 bg-blue-500 rounded-lg text-lg font-semibold hover:bg-blue-400 transition-colors animate-fadeIn"
       >
-        View My Work
+        View My Projects
       </a>
 
       <style jsx>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(-20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 1s ease-out;
-        }
+       
       `}</style>
     </section>
   );
