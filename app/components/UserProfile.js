@@ -15,7 +15,7 @@ export default function UserProfile({ user }) {
         className="rounded-full mx-auto mb-6"
       />
       <h1 className="text-5xl font-extrabold mb-4 animate-fadeIn">
-        Hello, I'm <span className="text-blue-400">{user.name}</span>
+        Hello, I am <span className="text-blue-400">{user.name}</span>
       </h1>
       <p className="text-lg font-light mb-8 max-w-md mx-auto leading-relaxed animate-fadeIn">
       {user.description}

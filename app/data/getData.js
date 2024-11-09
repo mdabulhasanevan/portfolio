@@ -3,7 +3,7 @@ import React from 'react';
 import async from './../about/page';
 import clientPromise from '@/lib/mongodb';
 
-class getData {
+export class getData {
 
     constructor() {
         this.clientPromise = clientPromise;
