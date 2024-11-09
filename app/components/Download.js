@@ -1,35 +1,35 @@
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import { MdPictureAsPdf } from "react-icons/md";
 
-import React from 'react';
-// import html2pdf from 'html2pdf.js';
-const Download = () => {
+const DownloadPage = ({contentRef}) => {
+//  const contentRef = useRef();
+
+const handleDownload = () => {
+  html2canvas(contentRef.current, { scale: 2 }).then((canvas) => {
+    const imgData = canvas.toDataURL('image/png');
+
+    // Create PDF instance with A4 size
+    const doc = new jsPDF('p', 'mm', 'a4');
+
+    // Define the image size to fit A4 size
+    const imgWidth = 210; // A4 width in mm
+    const imgHeight = (canvas.height * imgWidth) / canvas.width; // Scale to maintain aspect ratio
+    const topMargin = 5; // Define top margin in mm
+
+    // Add the image with the specified top margin
+    doc.addImage(imgData, 'PNG', 0, topMargin, imgWidth, imgHeight);
     
-
-    // Function to download PDF
-    const downloadPDF = ({contentRef}) => {
-      const element = contentRef;
-      
-      // Configure PDF options
-      const options = {
-        margin: 0,
-        filename: 'MyPortfolio.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
-      };
-  
-      // Generate and download PDF
-      // html2pdf().set(options).from(element).save();
-    };
-    return (
-        <div>
-             <button 
-        onClick={downloadPDF} 
-        className="bg-blue-500 text-white px-4 py-2 rounded mb-4"
-      >
-        Download as PDF
-      </button>
-        </div>
-    );
+    // Save the PDF
+    doc.save('Md Abul Hasan- Portfolio.pdf');
+  });
 };
 
-export default Download;
+  return (
+    <div>
+          <button onClick={handleDownload}><MdPictureAsPdf /></button>
+    </div>
+  );
+};
+
+export default DownloadPage;

@@ -18,7 +18,7 @@ export default function Navbar() {
           </ul>
         </div>
       </nav>
-      <div className="pt-16">
+      <div className="pt-8">
         {/* Add extra padding here to avoid content being hidden behind the fixed navbar */}
       </div>
 
