@@ -11,7 +11,7 @@ export default async function Home() {
 
   return (
     <main className="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center">
-   
+    <title>Portfolio | Home</title>
      <UserProfile user={user} />
 
     </main>

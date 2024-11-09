@@ -2,6 +2,7 @@
 export default function Contact() {
     return (
       <div className="container mx-auto p-8">
+         <title>Contact | Portfolio</title>
         <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
         <form className="flex flex-col space-y-4">
           <input

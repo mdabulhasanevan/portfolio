@@ -36,7 +36,7 @@ console.log("my data: " + user);
 
   return (
     <main className="bg-gray-900 text-white min-h-screen py-10">
-     
+      <title>About | Portfolio</title>
    <AboutComponent userData={userData}/>
 
     </main>
