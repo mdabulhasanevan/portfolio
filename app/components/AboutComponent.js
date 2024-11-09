@@ -26,7 +26,7 @@ const AboutComponent = ({userData}) => {
                     {/* Profile Image */}
                     <div className="lg:w-1/3 flex flex-col justify-center bg-gray-800 items-center" ref={contentRef}>
                         {/* <h2 className="text-4xl font-extrabold text-center mb-10 text-blue-400">About Me</h2> */}
-                        {/* <Download contentRef={contentRef}/> */}
+                        <Download contentRef={contentRef}/>
                         <Image
                             src={userData.profileImage}
                             width={250}
