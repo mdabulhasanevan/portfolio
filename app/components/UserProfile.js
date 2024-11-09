@@ -18,17 +18,17 @@ export default function UserProfile({ user }) {
         Hello, I'm <span className="text-blue-400">{user.name}</span>
       </h1>
       <p className="text-lg font-light mb-8 max-w-md mx-auto leading-relaxed animate-fadeIn">
-        A passionate developer focused on building impactful web applications.
+      {user.description}
       </p>
 
       <div className="flex justify-center space-x-6 mb-8 animate-fadeIn">
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+        <a href={user.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
           <FaGithub size={30} />
         </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+        <a href={user.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
           <FaLinkedin size={30} />
         </a>
-        <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+        <a href={user.x} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
           <FaTwitter size={30} />
         </a>
       </div>

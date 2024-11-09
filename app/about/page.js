@@ -1,8 +1,16 @@
 
 // app/about/page.js
+import Course from "../components/course";
+import Education from "../components/Education";
+import Experience from "../components/Exprience";
+import Skills from "../components/skills";
+import education from "../data/education";
+import experiences from "../data/experience";
 import getData from "../data/getData";
 
 import Image from "next/image";
+import skills from "../data/skills";
+import courses from "../data/course";
 
 export default async function About() {
  
@@ -26,31 +34,33 @@ console.log("my data: " + user);
         <div className="flex flex-col lg:flex-row items-center lg:items-start lg:space-x-10 space-y-8 lg:space-y-0">
           
           {/* Profile Image */}
-          <div className="w-full lg:w-1/3 flex justify-center lg:justify-start">
+          <div className="flex flex-col justify-center w-1/3  items-center">
             <Image 
               src={userData.profileImage}
-              width={300}
-              height={300}
+              width={250}
+              height={250}
               alt="Profile Picture"
-              className="rounded-lg shadow-lg object-cover"
+              className="rounded-lg shadow-lg object-cover "
             />
+             <Education education={education} />
           </div>
           
           {/* Bio Section */}
-          <div className="w-full lg:w-2/3 text-center lg:text-left">
+          <div className=" lg:w-2/3 text-center lg:text-left">
             <h3 className="text-3xl font-bold mb-4">Hello, I'm {userData.name}</h3>
             <p className="text-lg text-gray-300 leading-relaxed mb-6">
               {userData.bio}
             </p>
             
-            <h4 className="text-2xl font-semibold text-blue-400 mb-4">Skills & Expertise</h4>
-            <ol>
-        {userData.skills.map((skill) => (
-          <li className="text-amber-400" key={skill}>{skill}</li>
-        ))}
-      </ol>
+            <Experience experiences={experiences} />
+    
+     <Skills skills={skills} />
+     <Course courses={courses} />
           </div>
         </div>
+
+       
+
       </section>
     </main>
   );
