@@ -16,7 +16,7 @@ console.log("my data: " + projects);
          <title>Project | Portfolio</title>
         <section className="container mx-auto px-4">
           <h2 className="text-4xl font-extrabold text-center mb-10 text-blue-400">My Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {projects.map((project) => (
               <div key={project.id} className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
                 <img src={project.photo} alt={project.name} className="w-full h-48 object-cover" />
