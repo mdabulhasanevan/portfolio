@@ -1,13 +1,13 @@
 "use client"
 import React, { useRef } from 'react';
 import Education from './Education';
-import education from '../data/education';
+// import education from '../data/education';
 import Experience from './Exprience';
-import experiences from '../data/experience';
+// import experiences from '../data/experience';
 import Skills from './skills';
 import skills from '../data/skills';
 import Course from './course';
-import courses from '../data/course';
+// import courses from '../data/course';
 import Image from 'next/image';
 import Download from './Download';
 import DownloadPage from './Download';
@@ -15,7 +15,7 @@ import DownloadPage from './Download';
 
 
 
-const AboutComponent = ({userData}) => {
+const AboutComponent = ({userData, education, course, skill, experience}) => {
      // Reference for the page content
   const contentRef = useRef();
     return (
@@ -25,7 +25,7 @@ const AboutComponent = ({userData}) => {
             <div className="flex flex-col lg:flex-row items-stretch lg:space-x-5 space-y-4 lg:space-y-0">
   {/* Profile Image */}
   <div className="lg:w-1/3 flex flex-col justify-center bg-gray-800 items-center h-full min-h-full rounded-lg">
-    <DownloadPage contentRef={contentRef} />
+   
     <Image
       src={userData.profileImage}
       width={250}
@@ -42,9 +42,10 @@ const AboutComponent = ({userData}) => {
 
   {/* Bio Section */}
   <div className="lg:w-2/3 bg-gray-800 rounded-lg h-full min-h-full text-center lg:text-left">
-    <Experience experiences={experiences} />
-    <Skills skills={skills} />
-    <Course courses={courses} />
+  <DownloadPage contentRef={contentRef} className="float-right" />
+    <Experience experiences={experience} />
+    <Skills skills={skill} />
+    <Course courses={course} />
   </div>
 </div>
 

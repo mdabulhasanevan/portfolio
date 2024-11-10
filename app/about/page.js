@@ -24,6 +24,15 @@ export default async  function About() {
 
 const user=await getData.GetUserData();
 console.log("my data: " + user);
+const education=await getData.GetEducationData();
+console.log("my data: " + education);
+const course=await getData.GetCourseData();
+console.log("my data: " + course);
+const skill=await getData.GetSkillsData();
+console.log("my data: " + skill);
+const experience=await getData.GetExperienceData();
+console.log("my data: " + experience);
+
 
   const userData = {
     name: user.name,
@@ -37,7 +46,7 @@ console.log("my data: " + user);
   return (
     <main className="bg-gray-900 text-white min-h-screen py-10">
       <title>About | Portfolio</title>
-   <AboutComponent userData={userData}/>
+   <AboutComponent userData={userData} education={education} course={course} skill={skill} experience={experience}/>
 
     </main>
   );
