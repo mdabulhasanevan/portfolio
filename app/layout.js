@@ -2,6 +2,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Head from "next/head";
 
 
 const geistSans = localFont({
@@ -24,6 +25,12 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+        <link
+  rel="icon"
+  href="http://localhost:3000/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F175601100%3Fv%3D4&w=384&q=75"
+  type="image/<generated>"
+  sizes="<generated>"
+/>
       <body>
         <Navbar/>
         {children}
