@@ -9,7 +9,7 @@ const TextRain = ({ words = ["Node", "Next.js", "Tailwind"] }) => {
       {raindrops.map((word, index) => (
         <span
           key={index}
-          className="absolute text-4xl text-teal-100 animate-rain"
+          className="absolute text-4xl text-slate-800 animate-rain"
           style={{
             left: `${Math.random() * 100}%`, // Randomize horizontal position
             animationDelay: `${Math.random() * 5}s`, // Randomize animation delay
