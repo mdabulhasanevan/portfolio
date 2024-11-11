@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function UserProfile({ user }) {
   return (
-    <section className="text-center px-3 mt-4 ">
+    <section className="text-center px-3 mt-8 ">
      
       <Image 
         src={user.profileImage} // Profile picture from public folder

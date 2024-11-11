@@ -23,9 +23,9 @@ const AboutComponent = ({userData, education, course, skill, experience}) => {
             <section className="container mx-auto px-4 lg:px-8  " ref={contentRef} >
 
             <div className="flex flex-col lg:flex-row items-stretch lg:space-x-5 space-y-4 lg:space-y-0">
-  {/* Profile Image */}
+  {/* Profile Image */}<DownloadPage contentRef={contentRef} className="text-left" />
   <div className="lg:w-1/3 flex flex-col justify-center bg-gray-800 items-center h-full min-h-full rounded-lg">
-   
+  
     <Image
       src={userData.profileImage}
       width={250}
@@ -42,7 +42,7 @@ const AboutComponent = ({userData, education, course, skill, experience}) => {
 
   {/* Bio Section */}
   <div className="lg:w-2/3 bg-gray-800 rounded-lg h-full min-h-full text-center lg:text-left">
-  <DownloadPage contentRef={contentRef} className="float-right" />
+ 
     <Experience experiences={experience} />
     <Skills skills={skill} />
     <Course courses={course} />
