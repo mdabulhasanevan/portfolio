@@ -4,10 +4,10 @@ import { FaEnvelope, FaGithub, FaLinkedin, FaPhoneSquare } from 'react-icons/fa'
 const ContactInfo = () => {
     return (
         <div>
-            <div className="p-5 ">
+            <div className="p-5 overflow-hidden ">
             <div>
                
-                <div className="flex items-center space-x-2 mb-2">
+                <div className="flex flex-1 items-center space-x-2 mb-2 ">
                     <FaPhoneSquare className="text-blue-500" />
                     <a href="tel:01737013139" className="text-blue-500 hover:underline">
                         Mobile: 01737013139
