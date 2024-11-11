@@ -2,8 +2,9 @@
 import { useState } from 'react';
 import { FaEnvelope, FaGithub, FaLinkedin, FaPhoneSquare } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
-import ContactComponent from '../components/contactComponent';
+
 import ContactForm from '../components/ContactForm';
+import ContactInfo from '../components/ContactInfo';
 
 
 function Contact() {
@@ -14,7 +15,7 @@ function Contact() {
             <div className='flex-1 p-5 mt-5'>
             <h2 className="font-bold text-white text-center p-3">My Contact Detail</h2>
 
-                <ContactComponent />
+                <ContactInfo/>
                 </div>
                 <div className="flex-1">
                 <ContactForm />

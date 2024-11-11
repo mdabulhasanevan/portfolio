@@ -3,7 +3,7 @@
 import React from 'react';
 
 
-const Education = async ({ education }) => {
+const Education =  ({ education }) => {
 
   return (
     <section className="education-section w-full py-1">

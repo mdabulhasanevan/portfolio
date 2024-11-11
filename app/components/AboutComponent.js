@@ -5,20 +5,22 @@ import Education from './Education';
 import Experience from './Exprience';
 // import experiences from '../data/experience';
 import Skills from './skills';
-import skills from '../data/skills';
+// import skills from '../data/skills';
 import Course from './course';
 // import courses from '../data/course';
-import Image from 'next/image';
-import Download from './Download';
+// import Image from 'next/image';
+// import Download from './Download';
 import DownloadPage from './Download';
 import { FaEnvelope, FaPhoneSquare } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md';
-import ContactComponent from './contactComponent';
+// import { MdEmail } from 'react-icons/md';
+// import ContactComponent from './ContactComponent';
+import ContactInfo from '../components/ContactInfo';
 
 
 
 
-const AboutComponent = ({ userData, education, course, skill, experience }) => {
+
+const  AboutComponent = ({ userData, education, course, skill, experience }) => {
   // Reference for the page content
   const contentRef = useRef();
   return (
@@ -43,7 +45,8 @@ const AboutComponent = ({ userData, education, course, skill, experience }) => {
               {userData.bio}
             </p>
 
-            <ContactComponent />
+           <ContactInfo/>
+           
             <Education education={education} />
           </div>
 

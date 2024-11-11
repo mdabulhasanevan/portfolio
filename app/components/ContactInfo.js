@@ -1,10 +1,10 @@
-import React from 'react'
-import { FaEnvelope, FaGithub, FaLinkedin, FaPhoneSquare } from 'react-icons/fa'
+import React from 'react';
+import { FaEnvelope, FaGithub, FaLinkedin, FaPhoneSquare } from 'react-icons/fa';
 
-export default function ContactComponent() {
+const ContactInfo = () => {
     return (
-
-        <div className="p-5 ">
+        <div>
+            <div className="p-5 ">
             <div>
                
                 <div className="flex items-center space-x-2 mb-2">
@@ -36,8 +36,8 @@ export default function ContactComponent() {
                 </div>
             </div>
         </div>
+        </div>
+    );
+};
 
-
-
-    )
-}
+export default ContactInfo;
