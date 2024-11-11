@@ -15,7 +15,7 @@ export class getData {
 
         const user = await collection.findOne();
 
-        return await user;
+        return await JSON.parse(JSON.stringify(user));
     }
     // Fetch data from MongoDB
     async GetProjectData() {
@@ -25,7 +25,7 @@ export class getData {
 
         const Projects = await collection.find().toArray();
 
-        return await Projects;
+        return await JSON.parse(JSON.stringify(Projects));
     }
 
     async GetEducationData() {
@@ -35,7 +35,7 @@ export class getData {
 
         const education = await collection.find().toArray();
 
-        return await education;
+        return await JSON.parse(JSON.stringify(education));
     }
 
     async GetCourseData() {
@@ -45,7 +45,7 @@ export class getData {
 
         const course = await collection.find().sort({ _id: -1 }).toArray();
 
-        return await course
+        return await JSON.parse(JSON.stringify(course))
     }
     async GetSkillsData() {
         const client2 = await clientPromise;
@@ -54,7 +54,7 @@ export class getData {
 
         const skills = await collection.find().toArray();
 
-        return await skills
+        return await JSON.parse(JSON.stringify(skills))
     }
 
     async GetExperienceData() {
@@ -64,7 +64,7 @@ export class getData {
 
         const experience = await collection.find().sort({ _id: -1 }).toArray();
 
-        return await experience
+        return await JSON.parse(JSON.stringify(experience))
     }
 
 }
