@@ -1,13 +1,15 @@
 "use client"
 import { useState } from 'react';
 
-function ContactForm() {
+
+ function ContactForm() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: ''
     });
     const [status, setStatus] = useState('');
+    const [isLoading, setIsLoading] = useState(false);  // Track loading state
 
     // Handle form input changes
     const handleChange = (e) => {
@@ -47,6 +49,10 @@ function ContactForm() {
 
         const { name, email, message } = formData;
 
+        // Set loading state to true while sending the message
+        setIsLoading(true);
+        setStatus('Sending your message...');
+
         try {
             const response = await fetch('/api/sendEmail', {
                 method: 'POST',
@@ -59,13 +65,20 @@ function ContactForm() {
             const result = await response.json();
 
             if (response.ok) {
-                setFormData({name: '', email: '', message: ''});
+               setFormData({
+                    name: '',
+                    email: '',
+                    message: ''
+                });
                 setStatus('Message sent successfully!');
             } else {
                 setStatus(result.error || 'Failed to send message.');
             }
         } catch (error) {
             setStatus('Error sending message. Please try again.');
+        } finally {
+            // Set loading state to false after submission
+            setIsLoading(false);
         }
     };
     return (
@@ -85,6 +98,7 @@ function ContactForm() {
                     </div>
                 </div>
                 <form className="flex flex-1 flex-col p-5 mt-5 text-black" onSubmit={handleSubmit}>
+                    <h2 className="font-bold text-center text-white p-3">Drop Message</h2>
                     <input
                         type="text"
                         name="name"
@@ -92,7 +106,6 @@ function ContactForm() {
                         value={formData.name}
                         onChange={handleChange}
                         className="p-2 border border-gray-300 rounded mb-2"
-                        required
                     />
                     <input
                         type="email"
@@ -101,7 +114,6 @@ function ContactForm() {
                         value={formData.email}
                         onChange={handleChange}
                         className="p-2 border border-gray-300 rounded mb-2"
-                        required
                     />
                     <textarea
                         name="message"
@@ -110,11 +122,18 @@ function ContactForm() {
                         onChange={handleChange}
                         className="p-2 border border-gray-300 rounded mb-2"
                         rows="5"
-                        required
                     ></textarea>
-                    <button type="submit" className="p-2 bg-blue-500 text-white rounded">
-                        Send Message
-                    </button>
+                      <button
+                type="submit"
+                className="p-2 bg-blue-500 text-white rounded"
+                disabled={isLoading}  // Disable button while loading
+            >
+                {isLoading ? (
+                    <div className="w-5 h-5 border-4 border-t-4 border-red-500 rounded-full animate-spin mx-auto"></div>  // Tailwind Spinner
+                ) : (
+                    'Send Message'
+                )}
+            </button>
                     <p className="text-white">{status}</p>
                 </form>
 
