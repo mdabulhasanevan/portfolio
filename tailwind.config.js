@@ -11,6 +11,15 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      animation: {
+        rain: "rain 5s linear infinite",
+      },
+      keyframes: {
+        rain: {
+          '0%': { transform: 'translateY(-100px)', opacity: '1' },
+          '100%': { transform: 'translateY(100vh)', opacity: '0' },
+        },
+      },
     },
   },
   plugins: [],

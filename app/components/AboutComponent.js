@@ -23,12 +23,14 @@ const AboutComponent = ({ userData, education, course, skill, experience }) => {
   const contentRef = useRef();
   return (
     <div ref={contentRef}>
-      <section className="container mx-auto px-4 lg:px-8  "  >
+      <section className="container mx-auto px-2 lg:px-4  "  >
 
-        <div className="flex flex-col lg:flex-row items-stretch lg:space-x-5 space-y-4 lg:space-y-0">
-          {/* Profile Image */}<DownloadPage contentRef={contentRef} className="text-left" />
+        <div className="flex flex-col lg:flex-row items-stretch lg:space-x-2 space-y-4 lg:space-y-0">
+
+         
           <div className="lg:w-1/3 flex flex-col justify-center bg-gray-800 items-center h-full min-h-full rounded-lg">
-
+          <DownloadPage contentRef={contentRef} className="" />
+            {/* Profile Image */}
             <img
               src={userData.profileImage}
               width={150}

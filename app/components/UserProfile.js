@@ -15,14 +15,14 @@ export default function UserProfile({ user }) {
         alt="Profile Picture"
         className="rounded-full mx-auto mb-6"
       />
-      <h1 className="text-5xl font-extrabold mb-4 animate-fadeIn">
+      <h1 className="text-4xl font-extrabold mb-4 animate-fadeIn">
         Hello, I am <span className="text-blue-400">{user.name}</span>
       </h1>
-      <p className="text-lg font-light mb-8 max-w-md mx-auto leading-relaxed animate-fadeIn">
+      <p className="text-lg font-light mb-6 max-w-md mx-auto leading-relaxed animate-fadeIn">
       {user.description}
       </p>
 
-      <div className="flex justify-center space-x-6 mb-8 animate-fadeIn">
+      <div className="flex justify-center space-x-6 mb-3 animate-fadeIn">
         <a href={user.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
           <FaGithub size={30} />
         </a>
@@ -35,13 +35,13 @@ export default function UserProfile({ user }) {
       </div>
       <a
         href="/about"
-        className="inline-block px-6 py-3 mx-2 bg-green-500 rounded-lg text-lg font-semibold hover:bg-blue-400 transition-colors animate-fadeIn"
+        className="inline-block px-6 py-2 my-2 mx-2 bg-green-500 rounded-lg text-lg font-semibold hover:bg-blue-400 transition-colors animate-fadeIn"
       >
         My Details
       </a>
       <a
         href="/project"
-        className="inline-block px-6 py-3 bg-blue-500 rounded-lg text-lg font-semibold hover:bg-blue-400 transition-colors animate-fadeIn"
+        className="inline-block px-6 py-2 my-2 mx-2 bg-blue-500 rounded-lg text-lg font-semibold hover:bg-blue-400 transition-colors animate-fadeIn"
       >
         View My Projects
       </a>
