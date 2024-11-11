@@ -11,6 +11,9 @@ import Course from './course';
 import Image from 'next/image';
 import Download from './Download';
 import DownloadPage from './Download';
+import { FaEnvelope, FaPhoneSquare } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
+import ContactComponent from './contactComponent';
 
 
 
@@ -37,6 +40,8 @@ const AboutComponent = ({userData, education, course, skill, experience}) => {
     <p className="text-lg text-center text-gray-300 leading-relaxed mb-6">
       {userData.bio}
     </p>
+    
+    <ContactComponent />
     <Education education={education} />
   </div>
 
