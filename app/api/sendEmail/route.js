@@ -9,7 +9,7 @@ export async function POST(req) {
             port: process.env.EMAIL_PORT,
             auth: {
                 user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS
+                pass: process.env.EMAIL_PASS,
             },
         });
 
@@ -22,13 +22,11 @@ export async function POST(req) {
 
         return new Response(JSON.stringify({ message: 'Email sent successfully!' }), {
             status: 200,
-            headers: { 'Content-Type': 'application/json' },
         });
     } catch (error) {
         console.error(error);
         return new Response(JSON.stringify({ message: 'Failed to send email' }), {
             status: 500,
-            headers: { 'Content-Type': 'application/json' },
         });
     }
 }

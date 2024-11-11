@@ -1,86 +1,71 @@
 "use client"
 import { useState } from 'react';
 
-export default function ContactForm() {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
-    const [errors, setErrors] = useState({
+function ContactForm() {
+    const [formData, setFormData] = useState({
         name: '',
         email: '',
-        message: '',
+        message: ''
     });
-    const [status, setStatus] = useState(''); // State for status messages
+    const [status, setStatus] = useState('');
 
-    // Validate form fields
+    // Handle form input changes
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
+
+    // Validate form data before submission
     const validateForm = () => {
-        const newErrors = {};
-        let isValid = true;
-
-        if (!name) {
-            newErrors.name = 'Name is required';
-            isValid = false;
+        const { name, email, message } = formData;
+        if (!name || !email || !message) {
+            setStatus('All fields are required.');
+            return false;
         }
 
-        if (!email) {
-            newErrors.email = 'Email is required';
-            isValid = false;
-        } else if (!/\S+@\S+\.\S+/.test(email)) {
-            newErrors.email = 'Email is invalid';
-            isValid = false;
+        // Email regex for basic validation
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+            setStatus('Please enter a valid email address.');
+            return false;
         }
 
-        if (!message) {
-            newErrors.message = 'Message is required';
-            isValid = false;
-        }
-
-        setErrors(newErrors);
-        return isValid;
+        return true;
     };
 
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (validateForm()) {
-            // Simulate an email sending action (you should replace this with actual API call)
-            try {
-                // Reset the status before submission
-                setStatus('');
+        // Validate form before submission
+        if (!validateForm()) {
+            return;
+        }
 
-                // Simulate a successful email submission
-                console.log('Form submitted:', { name, email, message });
+        const { name, email, message } = formData;
 
-                // Set status message
+        try {
+            const response = await fetch('/api/sendEmail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, message }),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                setFormData({name: '', email: '', message: ''});
                 setStatus('Message sent successfully!');
-
-                // Hide the status message after 3 seconds
-                setTimeout(() => {
-                    setStatus('');
-                }, 3000);
-
-                // Reset form after submission
-                setName('');
-                setEmail('');
-                setMessage('');
-                setErrors({});
-            } catch (error) {
-                console.error(error);
-                setStatus('Failed to send message. Please try again.');
-
-                // Hide the status message after 3 seconds
-                setTimeout(() => {
-                    setStatus('');
-                }, 3000);
+            } else {
+                setStatus(result.error || 'Failed to send message.');
             }
-        } else {
-            setStatus('Please fill out all required fields.');
-
-            // Hide the status message after 3 seconds
-            setTimeout(() => {
-                setStatus('');
-            }, 3000);
+        } catch (error) {
+            setStatus('Error sending message. Please try again.');
         }
     };
     return (
@@ -100,50 +85,41 @@ export default function ContactForm() {
                     </div>
                 </div>
                 <form className="flex flex-1 flex-col p-5 mt-5 text-black" onSubmit={handleSubmit}>
-                    <h2 className="font-bold text-center text-white p-3">Contact with Email</h2>
-                    {status && (
-                        <div className={`mb-4 p-2 ${status.includes('success') ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'} rounded`}>
-                            {status}
-                        </div>
-                    )}
-
-                    <div className="mb-3">
-                        <input
-                            type="text"
-                            placeholder="Your Name"
-                            className="p-2 border border-gray-300 rounded w-full"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                        {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
-                    </div>
-                    <div className="mb-3">
-                        <input
-                            type="email"
-                            placeholder="Your Email"
-                            className="p-2 border border-gray-300 rounded w-full"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
-                    </div>
-                    <div className="mb-3">
-                        <textarea
-                            placeholder="Your Message"
-                            className="p-2 border border-gray-300 rounded w-full"
-                            rows="5"
-                            value={message}
-                            onChange={(e) => setMessage(e.target.value)}
-                        ></textarea>
-                        {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
-                    </div>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Your Name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="p-2 border border-gray-300 rounded mb-2"
+                        required
+                    />
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Your Email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="p-2 border border-gray-300 rounded mb-2"
+                        required
+                    />
+                    <textarea
+                        name="message"
+                        placeholder="Your Message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        className="p-2 border border-gray-300 rounded mb-2"
+                        rows="5"
+                        required
+                    ></textarea>
                     <button type="submit" className="p-2 bg-blue-500 text-white rounded">
                         Send Message
                     </button>
+                    <p className="text-white">{status}</p>
                 </form>
 
             </div>
         </main>
     );
 }
-
+export default ContactForm;
