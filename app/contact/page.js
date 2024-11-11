@@ -10,6 +10,7 @@ export default function ContactForm() {
         email: '',
         message: '',
     });
+    const [status, setStatus] = useState(''); // State for status messages
 
     // Validate form fields
     const validateForm = () => {
@@ -39,21 +40,49 @@ export default function ContactForm() {
     };
 
     // Handle form submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (validateForm()) {
-            // If form is valid, send the data (e.g., to your API endpoint)
-            console.log('Form submitted:', { name, email, message });
+            // Simulate an email sending action (you should replace this with actual API call)
+            try {
+                // Reset the status before submission
+                setStatus('');
 
-            // Reset form after submission
-            setName('');
-            setEmail('');
-            setMessage('');
-            setErrors({});
+                // Simulate a successful email submission
+                console.log('Form submitted:', { name, email, message });
+
+                // Set status message
+                setStatus('Message sent successfully!');
+
+                // Hide the status message after 3 seconds
+                setTimeout(() => {
+                    setStatus('');
+                }, 3000);
+
+                // Reset form after submission
+                setName('');
+                setEmail('');
+                setMessage('');
+                setErrors({});
+            } catch (error) {
+                console.error(error);
+                setStatus('Failed to send message. Please try again.');
+
+                // Hide the status message after 3 seconds
+                setTimeout(() => {
+                    setStatus('');
+                }, 3000);
+            }
+        } else {
+            setStatus('Please fill out all required fields.');
+
+            // Hide the status message after 3 seconds
+            setTimeout(() => {
+                setStatus('');
+            }, 3000);
         }
     };
-
     return (
         <main className="bg-gray-900 text-white min-h-screen py-10">
 
@@ -72,6 +101,11 @@ export default function ContactForm() {
                 </div>
                 <form className="flex flex-1 flex-col p-5 mt-5 text-black" onSubmit={handleSubmit}>
                     <h2 className="font-bold text-center text-white p-3">Contact with Email</h2>
+                    {status && (
+                        <div className={`mb-4 p-2 ${status.includes('success') ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'} rounded`}>
+                            {status}
+                        </div>
+                    )}
 
                     <div className="mb-3">
                         <input
