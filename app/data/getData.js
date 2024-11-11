@@ -57,6 +57,33 @@ export  class  getData {
         return await JSON.parse(JSON.stringify(skills))
     }
 
+    async GetSkillsWithoutCategoryData() {
+      
+            const client2 = await clientPromise;
+            const db = client2.db('portfolio');
+            const collection = db.collection('skills');
+          
+            try {
+                // Aggregate the data to merge all 'items' arrays into one
+                const result = await collection.aggregate([
+                    // Unwind the 'items' array to flatten each document's items
+                    { $unwind: "$items" },
+                    
+                    // Group all items into one array
+                    { $group: { _id: null, allItems: { $push: "$items" } } }
+                ]).toArray();
+        
+                // If result exists, return the merged 'items' array
+                const allItems = result.length > 0 ? result[0].allItems : [];
+                return allItems;
+        
+            } catch (error) {
+                console.error("Error fetching skills data:", error);
+                throw new Error("Failed to fetch skills data");
+            }
+        }
+        
+
     async GetExperienceData() {
         const client2 = await clientPromise;
         const db = client2.db('portfolio');

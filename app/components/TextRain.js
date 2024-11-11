@@ -1,6 +1,6 @@
 import React from "react";
 
-const TextRain = ({ words = ["Node", "Next.js", "Tailwind"] }) => {
+const TextRain = ({ words }) => {
   // Repeat the words multiple times to create many "raindrops"
   const raindrops = Array.from({ length: 50 }, () => words[Math.floor(Math.random() * words.length)]);
 
@@ -9,7 +9,7 @@ const TextRain = ({ words = ["Node", "Next.js", "Tailwind"] }) => {
       {raindrops.map((word, index) => (
         <span
           key={index}
-          className="absolute text-4xl text-slate-800 animate-rain"
+          className="absolute text-4xl text-orange-950 animate-rain"
           style={{
             left: `${Math.random() * 100}%`, // Randomize horizontal position
             animationDelay: `${Math.random() * 5}s`, // Randomize animation delay
