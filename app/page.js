@@ -15,7 +15,7 @@ export default async function Home() {
   return (
     <main className="relative z-10 bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center">
       <title>Portfolio | Home</title>
-      <div className="absolute top-0 left-0 w-full h-full z-0">
+      <div className=" w-full h-full z-0">
         <TextRain words={skill} text="Tailwind Rain Effect" />
       </div>
      
