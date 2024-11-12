@@ -6,7 +6,7 @@ const DownloadPage = ({contentRef}) => {
 //  const contentRef = useRef();
 
 const handleDownload = () => {
-  html2canvas(contentRef.current, { scale: 2 }).then((canvas) => {
+  html2canvas(contentRef.current, { useCORS: true, backgroundColor: "#ffffff", scale: 2 }).then((canvas) => {
     const imgData = canvas.toDataURL('image/png');
 
     // Create PDF instance with A4 size

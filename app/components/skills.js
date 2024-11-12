@@ -11,7 +11,7 @@ const Skills = ({ skills }) => {
             <h3 className="text-xl  font-semibold mb-4">{skillCategory.category}</h3>
             <ul className="list-disc list-inside">
               {skillCategory.items.map((skill, i) => (
-                <li key={i} className="text-orange-400">{skill}</li>
+                <li key={i} className="text-orange-400 text-left pl-3">{skill}</li>
               ))}
             </ul>
           </div>

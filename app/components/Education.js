@@ -10,7 +10,7 @@ const Education =  ({ education }) => {
       <h2 className="text-3xl font-bold text-center mb-2">Education</h2>
       <div className="education-list  max-w-4xl mx-auto px-4">
         {education.map((edu, index) => (
-          <div key={index} className="education-card mb-1 p-2  rounded-lg shadow-md">
+          <div key={index} className="education-card skill-category p-4 border-spacing-1 transform hover:scale-105 transition-transform duration-300 text-white border-gray-100 rounded-lg shadow-md mb-1 p-2  rounded-lg shadow-md">
             <h3 className="text-lg text-yellow-400 font-semibold">{edu.degree}</h3>
             <p className="text-orange-500">{edu.institute}</p>
             <p className="text-sm text-pink-500">

@@ -15,6 +15,7 @@ import { FaEnvelope, FaPhoneSquare } from 'react-icons/fa';
 // import { MdEmail } from 'react-icons/md';
 // import ContactComponent from './ContactComponent';
 import ContactInfo from '../components/ContactInfo';
+import Image from 'next/image';
 
 
 
@@ -31,15 +32,17 @@ const  AboutComponent = ({ userData, education, course, skill, experience }) => 
 
          
           <div className="lg:w-1/3 flex flex-col justify-center bg-gray-800 items-center h-full min-h-full rounded-lg">
-          <DownloadPage contentRef={contentRef} className="" />
             {/* Profile Image */}
-            <img
-              src={userData.profileImage}
-              width={150}
-              height={150}
+           
+           <img 
+               src={userData.profileImage}
+              // src='/photos/evan.jpg'
+              width='150'
+              height='150'
               alt="Profile Picture"
               className="rounded-full shadow-lg object-cover my-3"
             />
+           
             <h3 className="text-3xl font-bold mb-4 text-center">{userData.name}</h3>
             <p className="text-lg text-center text-gray-300 leading-relaxed mb-6">
               {userData.bio}
@@ -52,7 +55,8 @@ const  AboutComponent = ({ userData, education, course, skill, experience }) => 
 
           {/* Bio Section */}
           <div className="lg:w-2/3 bg-gray-800 rounded-lg h-full min-h-full text-center lg:text-left">
-
+          <DownloadPage contentRef={contentRef} className="text-right flex items-start justify-end" />
+         
             <Experience experiences={experience} />
             <Skills skills={skill} />
             <Course courses={course} />
