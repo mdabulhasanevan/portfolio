@@ -24,13 +24,13 @@ console.log("my data: " + projects);
                   <h3 className="text-2xl font-bold mb-2">{project.name}</h3>
                   <p className="text-gray-400 mb-4">{project.discription}</p>
                   <a
-                    href={project.link}
+                    href={project.link} target="_blank"
                     className="inline-block px-2 py-2 mt-4 text-sm font-semibold text-white bg-blue-500 rounded hover:bg-blue-400 transition-colors"
                   >
                     Live
                   </a>
                   <a
-                    href={project.github}
+                    href={project.github} target="_blank"
                     className="inline-block px-2 py-2 mt-4 m-4 text-sm font-semibold text-white bg-blue-500 rounded hover:bg-blue-400 transition-colors"
                   >
                     View Code

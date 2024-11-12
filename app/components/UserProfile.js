@@ -34,13 +34,13 @@ export default function UserProfile({ user }) {
         </a>
       </div>
       <a
-        href="/about"
+        href="/about" target="_blank"
         className="inline-block px-6 py-2 my-2 mx-2 bg-sky-500 rounded-lg text-lg font-semibold hover:bg-blue-400 transition-colors animate-fadeIn"
       >
         My Details
       </a>
       <a
-        href="/project"
+        href="/project" target="_blank"
         className="inline-block px-6 py-2 my-2 mx-2 bg-blue-500 rounded-lg text-lg font-semibold hover:bg-blue-400 transition-colors animate-fadeIn"
       >
         View My Projects
