@@ -7,6 +7,8 @@ import Experience from './Exprience';
 import Skills from './skills';
 // import skills from '../data/skills';
 import Course from './course';
+
+import Projects from './Projects';
 // import courses from '../data/course';
 // import Image from 'next/image';
 // import Download from './Download';
@@ -21,12 +23,12 @@ import Image from 'next/image';
 
 
 
-const  AboutComponent = ({ userData, education, course, skill, experience }) => {
+const  AboutComponent = ({ userData, education, course, skill, experience, projects }) => {
   // Reference for the page content
   const contentRef = useRef();
   return (
-    <div ref={contentRef}>
-      <section className="container mx-auto px-2 lg:px-4  "  >
+    <div >
+      <section ref={contentRef} className="container mx-auto px-2 lg:px-4  "  >
 
         <div className="flex flex-col lg:flex-row items-stretch lg:space-x-2 space-y-4 lg:space-y-0">
 
@@ -37,8 +39,8 @@ const  AboutComponent = ({ userData, education, course, skill, experience }) => 
            <img 
                src={userData.profileImage}
               // src='/photos/evan.jpg'
-              width='150'
-              height='150'
+              width='200'
+              height='200'
               alt="Profile Picture"
               className="rounded-full shadow-lg object-cover my-3"
             />
@@ -60,12 +62,17 @@ const  AboutComponent = ({ userData, education, course, skill, experience }) => 
             <Experience experiences={experience} />
             <Skills skills={skill} />
             <Course courses={course} />
+            <Projects projects={projects}/>
           </div>
         </div>
 
 
 
       </section>
+      <div className="flex justify-end m-5 ">
+            <a className="text-center inline-block px-2 py-2 text-sm font-semibold text-white bg-blue-900 rounded hover:bg-blue-400" href="/project">more</a>
+
+            </div>
     </div>
   );
 };
