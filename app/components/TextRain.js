@@ -9,7 +9,7 @@ const TextRain = ({ words }) => {
     // Stop the rain after 10 seconds
     const timer = setTimeout(() => {
       setIsActive(false);
-    }, 10000); // 10 seconds
+    }, 5000); // 10 seconds
 
     // Cleanup timer on unmount
     return () => clearTimeout(timer);
