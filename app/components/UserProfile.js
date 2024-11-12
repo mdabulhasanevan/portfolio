@@ -33,22 +33,20 @@ export default function UserProfile({ user }) {
           <FaTwitter size={30} />
         </a>
       </div>
-      <a
+      <Link
         href="/about" 
         className="inline-block px-6 py-2 my-2 mx-2 bg-sky-500 rounded-lg text-lg font-semibold hover:bg-blue-400 transition-colors animate-fadeIn"
       >
         My Details
-      </a>
-      <a
+      </Link>
+      <Link
         href="/project" 
         className="inline-block px-6 py-2 my-2 mx-2 bg-blue-500 rounded-lg text-lg font-semibold hover:bg-blue-400 transition-colors animate-fadeIn"
       >
         View My Projects
-      </a>
+      </Link>
 
-      <style jsx>{`
-       
-      `}</style>
+    
     </section>
   );
 }

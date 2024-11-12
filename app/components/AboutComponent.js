@@ -18,6 +18,7 @@ import { FaEnvelope, FaPhoneSquare } from 'react-icons/fa';
 // import ContactComponent from './ContactComponent';
 import ContactInfo from '../components/ContactInfo';
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 
@@ -70,7 +71,7 @@ const  AboutComponent = ({ userData, education, course, skill, experience, proje
 
       </section>
       <div className="flex justify-end m-5 ">
-            <a target="_blank" className="text-center inline-block px-2 py-2 text-sm font-semibold text-white bg-blue-900 rounded hover:bg-blue-400" href="/project">more</a>
+            <Link  className="text-center inline-block px-2 py-2 text-sm font-semibold text-white bg-blue-900 rounded hover:bg-blue-400" href="/project">more</Link>
 
             </div>
     </div>
