@@ -35,7 +35,7 @@ export default function UserProfile({ user }) {
       </div>
       <a
         href="/about"
-        className="inline-block px-6 py-2 my-2 mx-2 bg-green-500 rounded-lg text-lg font-semibold hover:bg-blue-400 transition-colors animate-fadeIn"
+        className="inline-block px-6 py-2 my-2 mx-2 bg-sky-500 rounded-lg text-lg font-semibold hover:bg-blue-400 transition-colors animate-fadeIn"
       >
         My Details
       </a>
