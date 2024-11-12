@@ -25,7 +25,7 @@ console.log("my data: " + projects);
                   <p className="text-gray-400 mb-4">{project.discription}</p>
                   <a
                     href={project.link}
-                    className="inline-block px-2 py-2 mt-4 text-sm font-semibold text-white bg-pink-500 rounded hover:bg-blue-400 transition-colors"
+                    className="inline-block px-2 py-2 mt-4 text-sm font-semibold text-white bg-blue-500 rounded hover:bg-blue-400 transition-colors"
                   >
                     Live
                   </a>
