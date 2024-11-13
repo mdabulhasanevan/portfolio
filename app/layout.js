@@ -3,7 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Head from "next/head";
-import NextTopLoader from "nextjs-toploader";
+// import { NextTopLoader } from 'nextjs-toploader';
+
 
 
 const geistSans = localFont({
@@ -33,7 +34,7 @@ export default function RootLayout({ children }) {
   sizes="<generated>"
 />
       <body>
-      <NextTopLoader />
+      {/* <NextTopLoader /> */}
         <Navbar/>
         {children}
       </body>
