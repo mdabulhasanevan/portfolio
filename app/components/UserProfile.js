@@ -3,6 +3,7 @@
 
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function UserProfile({ user }) {
   return (
